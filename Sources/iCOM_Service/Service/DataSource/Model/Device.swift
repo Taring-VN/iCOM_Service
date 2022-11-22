@@ -8,7 +8,7 @@
 import Foundation
 
 public struct ListDevices: Codable {
-    public init(items: [Items]? = [], totalPages: Int? = nil, totalItems: Int? = nil, nbItems: Int? = nil, pageSize: Int? = nil, pageNumber: Int? = nil, sort: [String]? = [], isFirstPage: Bool? = nil, isLastPage: Bool? = nil) {
+    public init(items: [Items]? = [], totalPages: Int? = nil, totalItems: Int? = nil, nbItems: Int? = nil, pageSize: Int? = nil, pageNumber: Int? = nil, sort: [String]? = [], isFirstPage: Bool? = nil, isLastPage: Bool? = nil, powerConsumption: Int? = nil) {
         self.items = items
         self.totalPages = totalPages
         self.totalItems = totalItems
@@ -18,6 +18,7 @@ public struct ListDevices: Codable {
         self.sort = sort
         self.isFirstPage = isFirstPage
         self.isLastPage = isLastPage
+        self.powerConsumption = powerConsumption
     }
     
     public var items       : [Items]?  = []
@@ -29,6 +30,7 @@ public struct ListDevices: Codable {
     public var sort        : [String]? = []
     public var isFirstPage : Bool?     = nil
     public var isLastPage  : Bool?     = nil
+    public var powerConsumption  : Int?      = nil
     
     enum CodingKeys: String, CodingKey {
         case items       = "items"
@@ -40,6 +42,7 @@ public struct ListDevices: Codable {
         case sort        = "sort"
         case isFirstPage = "isFirstPage"
         case isLastPage  = "isLastPage"
+        case powerConsumption = "powerConsumption"
     }
 }
 
