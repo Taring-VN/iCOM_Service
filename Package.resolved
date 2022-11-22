@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "8dd85aee02e39dd280c75eef88ffdb86eed4b07b",
+        "version" : "5.6.2"
+      }
+    },
+    {
+      "identity" : "rangeseekslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AalokParikh/RangeSeekSlider",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d55aa847068db9a40196ae0a97eb9f71d5ffa0a8"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8ec08deca8271516f673706e78fb954797cd6627"
+      }
+    },
+    {
+      "identity" : "svprogresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Pimine/SVProgressHUD.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6e3209b40b350916fb063cc6e84bfce8fb4c8e27"
+      }
+    }
+  ],
+  "version" : 2
+}
