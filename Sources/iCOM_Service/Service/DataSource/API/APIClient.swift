@@ -23,6 +23,11 @@ open class APIClient {
         let request = APIRouter.onOffDevice(params: params.toRequestParams()!)
         return APIClient.request(request)
     }
+    
+    public func aleartPower(params: AleartModel.AleartPower) -> Observable<OnOffDevice> {
+        let request = APIRouter.onOffDevice(params: params.toRequestParams()!)
+        return APIClient.request(request)
+    }
 
     //-------------------------------------------------------------------------------------------------
     //MARK: - The request function to get results in an Observable

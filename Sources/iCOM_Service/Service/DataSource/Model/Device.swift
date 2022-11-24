@@ -47,7 +47,7 @@ public struct ListDevices: Codable {
 }
 
 public struct Items: Codable {
-    public init(id: Int? = nil, name: String? = nil, mac: String? = nil, ip: String? = nil, version: String? = nil, hubId: Int? = nil, productId: Int? = nil, deviceType: String? = nil, address: String? = nil, extDevId: Int? = nil, status: Bool? = nil, dps: String? = nil, owner: String? = nil, users: [String]? = [], created: Int? = nil, updated: Int? = nil, deleted: Bool? = nil) {
+    public init(id: Int? = nil, name: String? = nil, mac: String? = nil, ip: String? = nil, version: String? = nil, hubId: Int? = nil, productId: Int? = nil, deviceType: String? = nil, address: String? = nil, extDevId: Int? = nil, status: Bool? = nil, dps: String? = nil, owner: String? = nil, users: [String]? = [], created: Double? = nil, updated: Double? = nil, powerConsumptionLimited: Int?  = nil, deleted: Bool? = nil) {
         self.id = id
         self.name = name
         self.mac = mac
@@ -64,6 +64,7 @@ public struct Items: Codable {
         self.users = users
         self.created = created
         self.updated = updated
+        self.powerConsumptionLimited = powerConsumptionLimited
         self.deleted = deleted
     }
     
@@ -81,9 +82,11 @@ public struct Items: Codable {
     public var dps        : String?   = nil
     public var owner      : String?   = nil
     public var users      : [String]? = []
-    public var created    : Int?      = nil
-    public var updated    : Int?      = nil
+    public var created    : Double?      = nil
+    public var updated    : Double?      = nil
+    public var powerConsumptionLimited    : Int?      = nil
     public var deleted    : Bool?     = nil
+    public var power      : Int?  = nil
     
     enum CodingKeys: String, CodingKey {
         case id         = "id"
@@ -102,7 +105,9 @@ public struct Items: Codable {
         case users      = "users"
         case created    = "created"
         case updated    = "updated"
+        case powerConsumptionLimited = "powerConsumptionLimited"
         case deleted    = "deleted"
+        case power      = "powers"
     }
 }
 
