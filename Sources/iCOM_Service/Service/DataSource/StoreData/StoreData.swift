@@ -14,6 +14,7 @@ open class StoreData {
     public static let shared = StoreData()
     
     private let itemKey = "ItemKey"
+    private let timeArr = "timeArr"
     
     public func getListItems() -> [Items]? {
         if let data = UserDefaults.standard.value(forKey: itemKey) as? Data,
@@ -27,5 +28,13 @@ open class StoreData {
         if let data = try? JSONEncoder().encode(dictData) {
             UserDefaults.standard.set(data, forKey: itemKey)
         }
+    }
+    
+    public func saveTime(_ time: [String]?) {
+        UserDefaults.standard.set(time, forKey: timeArr)
+    }
+
+    public func getTime() -> [String]? {
+        return UserDefaults.standard.stringArray(forKey: timeArr)
     }
 }
