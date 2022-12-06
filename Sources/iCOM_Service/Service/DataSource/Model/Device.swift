@@ -114,3 +114,8 @@ public struct Items: Codable {
 public struct OnOffDevice: Codable {
     
 }
+
+public struct ModelSection: Codable {
+    var name: String?
+    var isOn: Bool?
+}
