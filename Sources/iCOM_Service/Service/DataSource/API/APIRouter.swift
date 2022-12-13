@@ -47,7 +47,12 @@ enum APIRouter: URLRequestConvertible {
     }
     
     private var method: HTTPMethod {
-        return .get
+        switch self {
+        case .listDevices:
+            return .get
+        case .onOffDevice:
+            return .post
+        }
     }
     
     private var baseUrl: String {
