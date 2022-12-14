@@ -47,7 +47,7 @@ public struct ListDevices: Codable {
 }
 
 public struct Items: Codable {
-    public init(id: Int? = nil, name: String? = nil, mac: String? = nil, ip: String? = nil, version: String? = nil, hubId: Int? = nil, productId: Int? = nil, deviceType: String? = nil, address: String? = nil, extDevId: Int? = nil, status: Bool? = nil, dps: String? = nil, owner: String? = nil, users: [String]? = [], created: Double? = nil, updated: Double? = nil, powerConsumptionLimited: Int?  = nil, deleted: Bool? = nil) {
+    public init(id: Int? = nil, name: String? = nil, mac: String? = nil, ip: String? = nil, version: String? = nil, hubId: Int? = nil, productId: Int? = nil, deviceType: String? = nil, address: String? = nil, extDevId: Int? = nil, status: Bool? = nil, dps: Dps? = nil, owner: String? = nil, users: [String]? = [], currentReport: CurrentReport? = nil, created: Double? = nil, updated: Double? = nil, powerConsumptionLimited: Int?  = nil, deleted: Bool? = nil) {
         self.id = id
         self.name = name
         self.mac = mac
@@ -62,6 +62,7 @@ public struct Items: Codable {
         self.dps = dps
         self.owner = owner
         self.users = users
+        self.currentReport = currentReport
         self.created = created
         self.updated = updated
         self.powerConsumptionLimited = powerConsumptionLimited
@@ -78,10 +79,11 @@ public struct Items: Codable {
     public var deviceType : String?   = nil
     public var address    : String?   = nil
     public var extDevId   : Int?      = nil
-    public var status     : Bool?     = nil
-    public var dps        : String?   = nil
+    public var status     : Bool?     = false
+    public var dps        : Dps?   = nil
     public var owner      : String?   = nil
     public var users      : [String]? = []
+    public var currentReport: CurrentReport? = nil
     public var created    : Double?      = nil
     public var updated    : Double?      = nil
     public var powerConsumptionLimited    : Int?      = nil
@@ -103,12 +105,30 @@ public struct Items: Codable {
         case dps        = "dps"
         case owner      = "owner"
         case users      = "users"
+        case currentReport = "current_report"
         case created    = "created"
         case updated    = "updated"
         case powerConsumptionLimited = "powerConsumptionLimited"
         case deleted    = "deleted"
         case power      = "powers"
     }
+}
+
+public struct Dps: Codable {
+    public var the1: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case the1 = "1"
+    }
+}
+
+public struct CurrentReport: Codable {
+    public var id, countDown: Int?
+    public var addedElectricity: String?
+    public var current, power, voltage: Int?
+    public var voltageCoe, electricCoe, powerCoe, electricityCoe: String?
+    public var testBit: String?
+    public var error, restartStatus, cycleTiming, randomTiming: String?
 }
 
 public struct OnOffDevice: Codable {

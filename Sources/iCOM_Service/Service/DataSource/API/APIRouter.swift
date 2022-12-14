@@ -25,7 +25,7 @@ enum APIRouter: URLRequestConvertible {
         //Encoding
         let encoding: ParameterEncoding = {
             switch method {
-            case .get:
+            case .get, .post:
                 return URLEncoding.default
             default:
                 return JSONEncoding.default
